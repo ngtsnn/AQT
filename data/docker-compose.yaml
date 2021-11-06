@@ -1,0 +1,9 @@
+version: "3.3"
+
+services:
+  scraping:
+    image: scraping
+    build: 
+      context: .
+    volumes: 
+      - .:/usr/src/app
