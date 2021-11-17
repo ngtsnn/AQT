@@ -1,0 +1,36 @@
+.toolbar {
+    width: 80px;
+    height: calc(100% - 64px);
+    box-shadow: 2px 0 40px hsla(0, 0%, 56.9%, 0.1);
+    display: flex;
+    flex-direction: column;
+
+    .toolbar-top {
+        margin: 8px 8px 0;
+
+        button.active {
+            position: relative;
+            color: #2249ea;
+
+            &::before {
+                content: "";
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: #2249ea;
+                position: absolute;
+                top: 50%;
+                left: -8px;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    .toolbar-bottom {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin: 8px 8px 0;
+    }
+}
