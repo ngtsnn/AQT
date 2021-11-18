@@ -18,18 +18,23 @@ This module merely scraping data from [Aircheckr](https://www.aircheckr.com/). I
 ## Requirments:
 Only need when you want to edit and scrape your own data.
    * [Python](https://www.python.org/downloads/)
+   * [Aircheckr api's token](https://www.aircheckr.com/api_docs/#/?id=authentication)
    * [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html)(optional)
 
 ## Installation:
 
-Create virtual enviroment with virtualenv (optional):
+**Create virtual enviroment with virtualenv (optional):**
 ```bash
  virtualenv packages
 ```
-Install requirements:
+**Install requirements:**
 ```bash
  pip install -r requirements.txt
 ```
+**Create the ./secret.txt file in this directory with the following description:**
+aircheckr api's token
+
+**=> in case you don't really know how to write secret.txt, you could have a look at ./sample_secret.txt**
 
 ## Usage:
 

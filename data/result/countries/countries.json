@@ -1,0 +1,246 @@
+[
+  {
+    "id": "SE",
+    "name": [
+      "SWEDEN",
+      "SVERIGE"
+    ]
+  },
+  {
+    "id": "UK",
+    "name": [
+      "UNITED KINGDOM"
+    ]
+  },
+  {
+    "id": "ME",
+    "name": [
+      "CRNA GORA",
+      "MONTENEGRO",
+      "\u0426\u0420\u041d\u0410 \u0413\u041e\u0420\u0410"
+    ]
+  },
+  {
+    "id": "SI",
+    "name": [
+      "SLOVENIJA",
+      "SLOVENIA"
+    ]
+  },
+  {
+    "id": "BG",
+    "name": [
+      "BULGARIA",
+      "\u0411\u042a\u041b\u0413\u0410\u0420\u0418\u042f"
+    ]
+  },
+  {
+    "id": "DK",
+    "name": [
+      "DENMARK",
+      "DANMARK"
+    ]
+  },
+  {
+    "id": "CZ",
+    "name": [
+      "CESKA REPUBLIKA",
+      "CZECH REPUBLIC",
+      "CESK\u00c1 REPUBLIKA"
+    ]
+  },
+  {
+    "id": "IE",
+    "name": [
+      "IRELAND"
+    ]
+  },
+  {
+    "id": "IT",
+    "name": [
+      "ITALY",
+      "ITALIA"
+    ]
+  },
+  {
+    "id": "LI",
+    "name": [
+      "LICHTENSTEIN",
+      "LIECHTENSTEIN"
+    ]
+  },
+  {
+    "id": "LT",
+    "name": [
+      "LITHUANIA",
+      "LIETUVA"
+    ]
+  },
+  {
+    "id": "LU",
+    "name": [
+      "LUXEMBOURG"
+    ]
+  },
+  {
+    "id": "LV",
+    "name": [
+      "LATVIA",
+      "LATVIJA"
+    ]
+  },
+  {
+    "id": "MK",
+    "name": [
+      "PORANESNA JUGOSLOVENSKA REPUBLIKA MAKEDONIJA",
+      "MACEDONIA",
+      "\u041f\u041e\u0420\u0410\u041d\u0415\u0428\u041d\u0410 \u0408\u0423\u0413\u041e\u0421\u041b\u041e\u0412\u0415\u041d\u0421\u041a\u0410 \u0420\u0415\u041f\u0423\u0411\u041b\u0418\u041a\u0410 \u041c\u0410\u041a\u0415\u0414\u041e\u041d\u0418\u0408\u0410"
+    ]
+  },
+  {
+    "id": "NO",
+    "name": [
+      "NORWAY",
+      "NORGE"
+    ]
+  },
+  {
+    "id": "PL",
+    "name": [
+      "POLAND",
+      "POLSKA"
+    ]
+  },
+  {
+    "id": "ES",
+    "name": [
+      "ESPANA",
+      "SPAIN",
+      "ESPA\u00d1A"
+    ]
+  },
+  {
+    "id": "HR",
+    "name": [
+      "CROATIA",
+      "HRVATSKA"
+    ]
+  },
+  {
+    "id": "PT",
+    "name": [
+      "PORTUGAL"
+    ]
+  },
+  {
+    "id": "RO",
+    "name": [
+      "ROMANIA",
+      "ROM\u00c2NIA"
+    ]
+  },
+  {
+    "id": "SK",
+    "name": [
+      "SLOVAKIA",
+      "SLOVENSKO"
+    ]
+  },
+  {
+    "id": "HU",
+    "name": [
+      "MAGYARORSZAG",
+      "HUNGARY",
+      "MAGYARORSZ\u00c1G"
+    ]
+  },
+  {
+    "id": "NL",
+    "name": [
+      "NEDERLAND",
+      "NETHERLANDS"
+    ]
+  },
+  {
+    "id": "BE",
+    "name": [
+      "BELGIUM",
+      "BELGIQUE",
+      "BELGI\u00cb"
+    ]
+  },
+  {
+    "id": "CH",
+    "name": [
+      "SWITZERLAND",
+      "SCHWEIZ",
+      "SUISSE",
+      "SVIZZERA"
+    ]
+  },
+  {
+    "id": "FI",
+    "name": [
+      "FINLAND",
+      "SUOMI"
+    ]
+  },
+  {
+    "id": "DE",
+    "name": [
+      "GERMANY",
+      "DEUTSCHLAND"
+    ]
+  },
+  {
+    "id": "MT",
+    "name": [
+      "MALTA"
+    ]
+  },
+  {
+    "id": "FR",
+    "name": [
+      "FRANCE"
+    ]
+  },
+  {
+    "id": "AT",
+    "name": [
+      "OSTERREICH",
+      "AUSTRIA",
+      "\u00d6STERREICH"
+    ]
+  },
+  {
+    "id": "EE",
+    "name": [
+      "ESTONIA",
+      "EESTI"
+    ]
+  },
+  {
+    "id": "EL",
+    "name": [
+      "ELLADA",
+      "GREECE",
+      "\u0395\u039b\u039b\u0391\u0394\u0391"
+    ]
+  },
+  {
+    "id": "IS",
+    "name": [
+      "ISLAND",
+      "ICELAND",
+      "\u00cdSLAND"
+    ]
+  },
+  {
+    "id": "TR",
+    "name": [
+      "TURKIYE",
+      "TURKEY",
+      "T\u00dcRKIYE"
+    ]
+  }
+]
