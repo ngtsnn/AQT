@@ -1,0 +1,46 @@
+.App {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.hidden {
+	display: none;
+}
+
+.dark-theme {
+	--primary-background: #2a2a2a;
+	--primary-color: hsla(0, 0%, 100%, 0.84);
+	--primary-button: rgba(255, 255, 255, 0.5);
+	--primary-link-hover: rgba(186, 203, 214, 0.07);
+	--primary-button-hover: rgba(186, 203, 214, 0.07);
+	--primary-background-toolbar-content: #2f2f2f;
+}
+
+.slideInLeft {
+	animation: slideInLeft 0.5s;
+}
+
+.slideInRight {
+	animation: slideInRight 0.5s;
+}
+
+.slideInUp {
+	animation: slideInUp 0.5s;
+}
+
+.slideOutLeft {
+	animation: slideOutLeft 0.5s;
+}
+
+.slideOutRight {
+	animation: slideOutRight 0.5s;
+}
+
+.slideOutDown {
+	animation: slideOutDown 0.5s;
+}

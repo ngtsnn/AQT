@@ -1,0 +1,18 @@
+/* Style button */
+.btn-feature-item {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--primary-button);
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: var(--primary-button-hover);
+    }
+}

@@ -1,0 +1,94 @@
+#toolbar-mobile {
+	position: absolute;
+	bottom: 0;
+	z-index: 2;
+	width: 100%;
+	height: 4rem;
+
+	display: none;
+	flex-direction: row;
+	justify-content: space-around;
+
+	border-top-left-radius: 1.625rem;
+	border-top-right-radius: 1.625rem;
+
+	background-color: var(--primary-background);
+
+	button.active {
+		position: relative;
+		color: #2249ea;
+
+		&::before {
+			content: "";
+			width: 4px;
+			height: 4px;
+			border-radius: 50%;
+			background-color: #2249ea;
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+}
+
+.toolbar-mobile-content {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50%;
+
+	background-color: var(--primary-background);
+	color: var(--primary-color);
+
+	border-top-left-radius: 1.625rem;
+	border-top-right-radius: 1.625rem;
+
+	.toolbar-mobile-content-container {
+		padding: 20px;
+		.toolbar-mobile-content-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			span {
+			}
+		}
+	}
+}
+
+// Responsive > 1200px
+@media all and (min-width: 1201px) {
+	#toolbar-mobile {
+		display: none;
+	}
+	.toolbar-mobile-content {
+		display: none;
+	}
+}
+
+// Responsive desktop
+@media all and (min-width: 769px) and (max-width: 1200px) {
+	#toolbar-mobile {
+		display: none;
+	}
+	.toolbar-mobile-content {
+		display: none;
+	}
+}
+
+// Responsive tablet
+@media all and (min-width: 577px) and (max-width: 768px) {
+	#toolbar-mobile {
+		display: none;
+	}
+	.toolbar-mobile-content {
+		display: none;
+	}
+}
+
+// Responsive phone
+@media all and (max-width: 576px) {
+	#toolbar-mobile {
+		display: flex;
+	}
+}
