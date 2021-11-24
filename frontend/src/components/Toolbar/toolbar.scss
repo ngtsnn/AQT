@@ -1,36 +1,68 @@
 .toolbar {
-    width: 80px;
-    height: calc(100% - 64px);
-    box-shadow: 2px 0 40px hsla(0, 0%, 56.9%, 0.1);
-    display: flex;
-    flex-direction: column;
+	position: relative;
+	width: 80px;
+	height: calc(100% - 64px);
+	box-shadow: 2px 0 40px hsla(0, 0%, 56.9%, 0.1);
+	display: flex;
+	flex-direction: column;
+	background-color: var(--primary-background);
 
-    .toolbar-top {
-        margin: 8px 8px 0;
+	.toolbar-top {
+		margin: 8px 8px 0;
 
-        button.active {
-            position: relative;
-            color: #2249ea;
+		button.active {
+			position: relative;
+			color: #2249ea;
 
-            &::before {
-                content: "";
-                width: 4px;
-                height: 4px;
-                border-radius: 50%;
-                background-color: #2249ea;
-                position: absolute;
-                top: 50%;
-                left: -8px;
-                transform: translateY(-50%);
-            }
-        }
-    }
+			&::before {
+				content: "";
+				width: 4px;
+				height: 4px;
+				border-radius: 50%;
+				background-color: #2249ea;
+				position: absolute;
+				top: 50%;
+				left: -8px;
+				transform: translateY(-50%);
+			}
+		}
+	}
 
-    .toolbar-bottom {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        margin: 8px 8px 0;
-    }
+	.toolbar-bottom {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		margin: 8px 8px 0;
+	}
+}
+
+.toolbar-content {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 80px;
+	width: 350px;
+	height: 100%;
+	background-color: var(--primary-background-toolbar-content);
+	color: var(--primary-color);
+	.toolbar-content-container {
+		padding-left: 10px;
+		.toolbar-content-header {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
+}
+
+// Responsive phone
+@media all and (max-width: 575px) {
+	.toolbar {
+		display: none;
+	}
+	.toolbar-content {
+		display: none;
+	}
 }

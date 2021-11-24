@@ -1,10 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
+import { DarkModeContext } from "../../context/DarkModeProvider";
 import {
   Dehaze,
   InfoOutlined,
   Close,
   Link,
-  WbSunny,
+  Brightness2Outlined,
   Attachment,
 } from "@mui/icons-material";
 import { Switch } from "@mui/material";
@@ -12,6 +13,7 @@ import "./header.scss";
 
 export default function Header() {
   const [type, setType] = useState("");
+  const { isDarkMode, setIsDarkMode } = useContext(DarkModeContext);
   const infoRef = useRef(null);
   const menuRef = useRef(null);
   const overlayRef = useRef(null);
@@ -46,8 +48,6 @@ export default function Header() {
         menuRef.current.classList.remove("slideInLeft");
         menuRef.current.classList.add("slideOutLeft");
 
-        console.log("LOGGG");
-
         setTimeout(() => {
           menuRef.current.classList.add("hidden");
           overlayRef.current.classList.add("hidden");
@@ -72,6 +72,18 @@ export default function Header() {
     }
   };
 
+  const handleChangeDarkMode = () => {
+    if (isDarkMode) {
+      document.body.classList.remove("dark-theme");
+      document.querySelector(".img-logo").src = "/img/logo-white.png";
+      setIsDarkMode(false);
+    } else {
+      document.body.classList.add("dark-theme");
+      document.querySelector(".img-logo").src = "/img/logo-dark.png";
+      setIsDarkMode(true);
+    }
+  };
+
   return (
     <>
       {/* Header */}
@@ -85,7 +97,7 @@ export default function Header() {
               <Dehaze />
             </button>
             <a href="/">
-              <img src="/img/logo.png" alt="" />
+              <img src="/img/logo-white.png" alt="" className="img-logo" />
             </a>
           </div>
           <div className="header-right">
@@ -125,11 +137,16 @@ export default function Header() {
             </li>
             <li>
               <a href="/">
-                <WbSunny className="modal-content-icon" />
+                <Brightness2Outlined className="modal-content-icon" />
                 <span style={{ display: "flex", flex: "1" }}>
                   Chế độ nền tối
                 </span>
-                <Switch defaultChecked={false} size="medium" color="info" />
+                <Switch
+                  checked={isDarkMode}
+                  size="medium"
+                  color="info"
+                  onChange={handleChangeDarkMode}
+                />
               </a>
             </li>
             <li>
