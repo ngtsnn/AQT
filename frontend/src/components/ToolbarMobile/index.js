@@ -82,7 +82,7 @@ export default function ToolbarMobile() {
         </button>
       </div>
       {/* Toolbar Mobile Content 1*/}
-      <div className="toolbar-mobile-content ">
+      <div className="toolbar-mobile-content hidden">
         <div className="toolbar-mobile-content-container">
           <div className="toolbar-mobile-content-header">
             <span>Noi dung 1</span>

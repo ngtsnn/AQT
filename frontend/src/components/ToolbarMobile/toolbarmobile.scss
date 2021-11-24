@@ -56,12 +56,34 @@
 	}
 }
 
+// Responsive > 1200px
+@media all and (min-width: 1201px) {
+	#toolbar-mobile {
+		display: none;
+	}
+	.toolbar-mobile-content {
+		display: none;
+	}
+}
+
 // Responsive desktop
-@media all and (max-width: 1200px) {
+@media all and (min-width: 769px) and (max-width: 1200px) {
+	#toolbar-mobile {
+		display: none;
+	}
+	.toolbar-mobile-content {
+		display: none;
+	}
 }
 
 // Responsive tablet
-@media all and (max-width: 768px) {
+@media all and (min-width: 577px) and (max-width: 768px) {
+	#toolbar-mobile {
+		display: none;
+	}
+	.toolbar-mobile-content {
+		display: none;
+	}
 }
 
 // Responsive phone
