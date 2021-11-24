@@ -1,3 +1,6 @@
 .ipynb_checkpoints/
 packages/
 __pycache__/
+.env*
+env/
+secret.txt

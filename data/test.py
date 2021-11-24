@@ -64,53 +64,16 @@ def main():
 
 with open("./result/countries/countries.json", 'r') as file:
   countries = json.load(file)
-driver = webdriver.Chrome()
+# driver = webdriver.Chrome()
 
 
-country = countries[8]
+country = countries[8] 
 cities = getCities(country=country)
 city = cities[0]
-driver.get(OSM_URL)
-sleep(3)
-search = driver.find_element(By.ID, "q")
-search.send_keys(city["name"][0] + ', ' + country["name"][0])
-sleep(4)
-searchBtn = driver.find_element(By.XPATH, '//*[@id="simple"]/form/button')
-searchBtn.click()
-sleep(3)
-data = {}
-hasGeo = True
-try:
-  osmAnchor = driver.find_element(By.XPATH, '//span[text()="Administrative"]/following-sibling::a')
-  osmAnchor.click()
-  sleep(2)
-  osmID = driver.find_element(By.XPATH, '//td[text()="OSM"]/following-sibling::td').text
-  if osmID.startswith("relation "):
-    osmID = osmID[len("relation "):]
-    driver.get(POLYGON_URL)
-    sleep(3)
-    idInput = driver.find_element(By.ID, 'id')
-    idInput.send_keys(osmID)
-    sleep(3)
-    submitBtn = driver.find_element(By.XPATH, '//*[@id="id"]/following-sibling::input')
-    submitBtn.click()
-    sleep(4)
-    apiLinks = driver.find_elements(By.XPATH, '//a[text()="GeoJSON"]')
-    if (len(apiLinks) > 3):
-      apiLinks[-2].click()
-    else:
-      apiLinks[-1].click()
-    content = driver.find_element(By.TAG_NAME, 'pre').text
-    print(content)
-    data = json.loads(content)
-    print(data)
-  else:
-    raise ValueError('no relation')
-  hasGeo = True
-except:
-  hasGeo = False
-  data = {}
-  
+geolocator = Nominatim(user_agent="Myapp")
+print(city["name"][0] + ', ' + country["name"][0])
+location = geolocator.geocode(city["name"][0] + ', ' + country["name"][0])
+print(location.raw['osm_id'])
 
    
 
