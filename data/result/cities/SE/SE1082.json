@@ -1,0 +1,16 @@
+{
+  "cityID": "SE1082",
+  "countryID": "SE",
+  "geometries": [
+    {
+      "coordinates": [
+        []
+      ],
+      "type": "MultiPolygon"
+    }
+  ],
+  "name": [
+    "Karlshamn"
+  ],
+  "type": "GeometryCollection"
+}
