@@ -54,19 +54,18 @@ def getCities(country):
 
 def saveCityBoundary(country, city):
   driver.get(OSM_URL + "search.html")
-  sleep(3)
+  sleep(2)
   search = driver.find_element(By.ID, "q")
   search.send_keys(city["name"][0] + ', ' + country["name"][0])
-  sleep(4)
+  sleep(1)
   searchBtn = driver.find_element(By.XPATH, '//*[@id="simple"]/form/button')
   searchBtn.click()
-  sleep(3)
+  sleep(2)
   data = {
     "cityID": city["id"],
     "name": city["name"],
     "countryID": country["id"],
-    "hasGeo": True,
-    "type": "MultiPolygon",
+    "type": "GeometryCollection",
     "geometries": [],
   }
   hasGeo = True
@@ -81,29 +80,30 @@ def saveCityBoundary(country, city):
     if osmID.startswith("relation "):
       osmID = osmID[len("relation "):]
       driver.get(POLYGON_URL)
-      sleep(3)
+      sleep(2)
       idInput = driver.find_element(By.ID, 'id')
       idInput.send_keys(osmID)
-      sleep(3)
+      sleep(1)
       submitBtn = driver.find_element(By.XPATH, '//*[@id="id"]/following-sibling::input')
       submitBtn.click()
-      sleep(4)
+      sleep(2)
       apiLinks = driver.find_elements(By.XPATH, '//a[text()="GeoJSON"]')
       apiLinks[-1].click() 
-      sleep(2)
+      sleep(1)
       content = driver.find_element(By.TAG_NAME, 'pre').text
       cityBoundary = json.loads(content)
-      data["type"] = cityBoundary["type"]
-      data["geometries"] = cityBoundary["geometries"]
-      data["hasGeo"] = True
+      if "geometries" in cityBoundary:
+        data["geometries"] = cityBoundary["geometries"]
+      else:
+        data["geometries"].append(cityBoundary)
+      saveJSON("./result/cities/" + country["id"] + "/" + city["id"] + ".json" , json.dumps(data, sort_keys=True, indent=2))
     else:
       raise ValueError('no relation')
+    return True
   except:
-    data["geometries"] = []
-    data["hasGeo"] = False
+    return False
   # print(data)
   # return
-  saveJSON("./result/cities/" + country["id"] + "/" + city["id"] + ".json" , json.dumps(data, sort_keys=True, indent=2))
 
 
 # Main function
@@ -114,10 +114,18 @@ def main():
     saveJSON(relPath = "./result/countries/countries.json", json = json.dumps(countries, sort_keys=True, indent=2))
 
     ## scrape geo and air quality data
-    for country in countries:
-      cities = getCities(country=country)
-      for city in cities:
-        saveCityBoundary(country, city)
+    ## uncomment this code in case u want to scrape all the data
+    # for country in countries:
+    #   cities = getCities(country=country)
+    #   for city in cities:
+    #     saveCityBoundary(country, city)
+
+    ## my case is just scrape from Sweden
+    country = countries[8]
+    cities = getCities(country)
+    city = cities[0]
+    for city in cities:
+      saveCityBoundary(country, city)
 
 # with open("./result/countries/countries.json", 'r') as file:
 #   countries = json.load(file)
@@ -125,7 +133,7 @@ def main():
    
 
 main()
-# driver.close()
+driver.close()
 # cities = getCities({
 #     "id": "SE",
 #     "name": [
