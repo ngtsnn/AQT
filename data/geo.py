@@ -5,7 +5,6 @@ from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from geopy.geocoders import Nominatim
 from os import makedirs, path, getcwd
 
 # Set up constants and variables
@@ -65,10 +64,10 @@ def saveCityBoundary(country, city):
     "cityID": city["id"],
     "name": city["name"],
     "countryID": country["id"],
+    "center": [0, 0],
     "type": "GeometryCollection",
     "geometries": [],
   }
-  hasGeo = True
   try:
     osmAnchor = driver.find_element(By.XPATH, '//span[text()="Administrative"]/following-sibling::a')
     osmAnchorParent = osmAnchor.find_element(By.XPATH, '..')
@@ -76,6 +75,9 @@ def saveCityBoundary(country, city):
     sleep(1)
     osmAnchor.click()
     sleep(2)
+    center = driver.find_element(By.XPATH, '//td[text()="Centre Point (lat,lon)"]/following-sibling::td').text
+    coordinate = center.split(",")
+    data["center"] = list(coordinate.__reversed__())
     osmID = driver.find_element(By.XPATH, '//td[text()="OSM"]/following-sibling::td').text
     if osmID.startswith("relation "):
       osmID = osmID[len("relation "):]
@@ -121,14 +123,14 @@ def main():
     #     saveCityBoundary(country, city)
 
     ## my case is just scrape from Sweden
-    country = countries[8]
+    country = countries[0]
     cities = getCities(country)
-    city = cities[0]
     for city in cities:
       saveCityBoundary(country, city)
 
-# with open("./result/countries/countries.json", 'r') as file:
-#   countries = json.load(file)
+with open("./result/countries/countries.json", 'r') as file:
+  countries = json.load(file)
+
 
    
 

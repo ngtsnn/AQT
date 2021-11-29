@@ -1,4 +1,8 @@
 {
+  "center": [
+    "16",
+    "64.5"
+  ],
   "cityID": "SE2425",
   "countryID": "SE",
   "geometries": [

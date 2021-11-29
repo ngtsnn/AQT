@@ -1,15 +1,11 @@
 # Load libraries
 import json
 import requests
-from time import sleep
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-from geopy.geocoders import Nominatim
 from os import makedirs, path, getcwd
 
 # Set up constants and variables
-## Get secret stuffs
+
+## Get secret stuffs 
 file = open("secret.txt", "r")
 secrets = file.readlines()
 
@@ -19,7 +15,7 @@ CURR_DIR = getcwd()
 ## Handling API variables
 ### base url
 BASE_URL = "https://api.aircheckr.com"
-OSM_URL = "https://nominatim.openstreetmap.org/ui/search.html"
+OSM_URL = "https://nominatim.openstreetmap.org/ui/"
 POLYGON_URL = "http://polygons.openstreetmap.fr/index.py"
 ### headers
 token = secrets[0]
@@ -49,9 +45,6 @@ def getCities(country):
   cities = requests.get(BASE_URL + CITIES_URL.format(country["id"]), headers=headers)
   return cities.json()
 
-def saveCities():
-  return
-
 
 # Main function
 def main(): 
@@ -60,24 +53,24 @@ def main():
     countries = getCountries()
     saveJSON(relPath = "./result/countries/countries.json", json = json.dumps(countries, sort_keys=True, indent=2))
 
-    ## scrape 
+    ## scrape geo and air quality data
+    ## uncomment this code in case u want to scrape all the data
+    # for country in countries:
+    #   cities = getCities(country=country)
+    #   for city in cities:
+    #     saveCityBoundary(country, city)
+
+    ## my case is just scrape from Sweden
+
+      
 
 with open("./result/countries/countries.json", 'r') as file:
   countries = json.load(file)
-# driver = webdriver.Chrome()
 
-
-country = countries[8] 
-cities = getCities(country=country)
-city = cities[0]
-geolocator = Nominatim(user_agent="Myapp")
-print(city["name"][0] + ', ' + country["name"][0])
-location = geolocator.geocode(city["name"][0] + ', ' + country["name"][0])
-print(location.raw['osm_id'])
 
    
 
-# main()
+main()
 # cities = getCities({
 #     "id": "SE",
 #     "name": [
