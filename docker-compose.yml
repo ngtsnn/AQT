@@ -1,15 +1,15 @@
 version: "3.3"
 
 services: 
-  backend:
-    image: backend_AQT
-    build: 
-      context: ./backend
-      dockerfile: ./docker/dockerfile
+   backend:
+    image: strapi/strapi:3.6.8-node14-alpine
     ports: 
       - 1337:1337
+    restart: on-failure
+    volumes: 
+      - ./backend:/srv/app
   frontend:
-    image: frontend_AQT
+    image: frontend_aqt
     build: 
       context: ./frontend
       dockerfile: ./docker/dockerfile
@@ -19,3 +19,4 @@ services:
       - 3000:3000
     volumes: 
       - ./frontend:.
+    restart: on-failure

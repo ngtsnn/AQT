@@ -3,8 +3,8 @@ FROM node:14-alpine
 WORKDIR /app
 
 # install app dependencies
-COPY package.json package-lock.json yarn.lock ./
-RUN yarn && yarn global add react-scripts@3.4.1
+COPY package.json yarn.lock ./
+RUN yarn
 
 # add app
 COPY . ./
