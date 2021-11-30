@@ -21,15 +21,13 @@ export default function GisLayout() {
     //   return res.json();
     // }).then(data)
     const res = await fetch("http://localhost:3001/SE0115.json");
-    console.log(res.json());
-    // const data = await res.json();
-    // console.log(data);
+    const data = await res.json();
 
     const graphicsLayer = new GraphicsLayer();
     map.add(graphicsLayer);
     const polygon = {
       type: "polygon",
-      // rings: data.geometries[0].coordinates[0],
+      rings: data.geometries[0].coordinates[0],
     };
     const simpleFillSymbol = {
       type: "simple-fill",
