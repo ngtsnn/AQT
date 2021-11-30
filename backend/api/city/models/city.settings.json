@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "Cities",
+  "info": {
+    "name": "City"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cityID": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "center": {
+      "type": "json"
+    },
+    "country": {
+      "model": "country",
+      "via": "cities"
+    },
+    "geometries": {
+      "type": "json",
+      "required": true
+    },
+    "name": {
+      "type": "json",
+      "required": true
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}
