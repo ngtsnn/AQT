@@ -6,27 +6,27 @@ import GisLayout from "./components/GisLayout";
 import DarkModeProvider from "./context/DarkModeProvider";
 
 function App() {
-	return (
-		<DarkModeProvider>
-			<div className="App">
-				<Header></Header>
-				<div
-					className="app-content"
-					style={{
-						position: "relative",
-						display: "flex",
-						flexDirection: "row",
-						width: "100%",
-						height: "100%",
-					}}
-				>
-					<Toolbar></Toolbar>
-					<GisLayout></GisLayout>
-				</div>
-				<ToolbarMobile></ToolbarMobile>
-			</div>
-		</DarkModeProvider>
-	);
+  return (
+    <DarkModeProvider>
+      <div className="App">
+        <Header></Header>
+        <div
+          className="app-content"
+          style={{
+            position: "relative",
+            display: "flex",
+            flexDirection: "row",
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <Toolbar></Toolbar>
+          <GisLayout></GisLayout>
+        </div>
+        <ToolbarMobile></ToolbarMobile>
+      </div>
+    </DarkModeProvider>
+  );
 }
 
 export default App;

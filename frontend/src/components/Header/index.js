@@ -1,13 +1,6 @@
 import React, { useRef, useState, useContext } from "react";
 import { DarkModeContext } from "../../context/DarkModeProvider";
-import {
-  Dehaze,
-  InfoOutlined,
-  Close,
-  Link,
-  Brightness2Outlined,
-  Attachment,
-} from "@mui/icons-material";
+import { Dehaze, InfoOutlined, Close, Link, Brightness2Outlined, Attachment } from "@mui/icons-material";
 import { Switch } from "@mui/material";
 import "./header.scss";
 
@@ -75,11 +68,11 @@ export default function Header() {
   const handleChangeDarkMode = () => {
     if (isDarkMode) {
       document.body.classList.remove("dark-theme");
-      document.querySelector(".img-logo").src = "/img/logo-white.png";
+      document.querySelector(".img-logo").src = "/img/logo-white.jpg";
       setIsDarkMode(false);
     } else {
       document.body.classList.add("dark-theme");
-      document.querySelector(".img-logo").src = "/img/logo-dark.png";
+      document.querySelector(".img-logo").src = "/img/logo-dark.jpg";
       setIsDarkMode(true);
     }
   };
@@ -90,21 +83,15 @@ export default function Header() {
       <header>
         <div className="header-container">
           <div className="header-left">
-            <button
-              className="btn-feature-item"
-              onClick={() => handleOpen("menu")}
-            >
+            <button className="btn-feature-item" onClick={() => handleOpen("menu")}>
               <Dehaze />
             </button>
             <a href="/">
-              <img src="/img/logo-white.png" alt="" className="img-logo" />
+              <img src="/img/logo-white.jpg" alt="" className="img-logo" />
             </a>
           </div>
           <div className="header-right">
-            <button
-              className="btn-feature-item"
-              onClick={() => handleOpen("info")}
-            >
+            <button className="btn-feature-item" onClick={() => handleOpen("info")}>
               <InfoOutlined />
             </button>
           </div>
@@ -114,10 +101,7 @@ export default function Header() {
       {/* Modal Menu*/}
       <div className="modal-menu hidden" ref={menuRef}>
         <div className="modal-header">
-          <button
-            className="btn-feature-item"
-            onClick={() => handleClose("menu")}
-          >
+          <button className="btn-feature-item" onClick={() => handleClose("menu")}>
             <Close />
           </button>
         </div>
@@ -138,15 +122,8 @@ export default function Header() {
             <li>
               <a href="/">
                 <Brightness2Outlined className="modal-content-icon" />
-                <span style={{ display: "flex", flex: "1" }}>
-                  Chế độ nền tối
-                </span>
-                <Switch
-                  checked={isDarkMode}
-                  size="medium"
-                  color="info"
-                  onChange={handleChangeDarkMode}
-                />
+                <span style={{ display: "flex", flex: "1" }}>Chế độ nền tối</span>
+                <Switch checked={isDarkMode} size="medium" color="info" onChange={handleChangeDarkMode} />
               </a>
             </li>
             <li>
@@ -162,10 +139,7 @@ export default function Header() {
       {/* Modal Info */}
       <div className="modal-info hidden" ref={infoRef}>
         <div className="modal-header">
-          <button
-            className="btn-feature-item"
-            onClick={() => handleClose("info")}
-          >
+          <button className="btn-feature-item" onClick={() => handleClose("info")}>
             <Close />
           </button>
         </div>
@@ -175,23 +149,16 @@ export default function Header() {
           </div>
           <div className="modal-desc">
             <span>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi
-              porro quas iste libero eligendi consequatur voluptatum reiciendis
-              commodi? Tenetur aut expedita ex blanditiis, ullam eligendi.
-              Commodi vero similique praesentium laboriosam consectetur, quam
-              quae officiis in placeat rem, eligendi culpa ab? Quidem ea non id,
-              rerum totam et aperiam nobis. Non.
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi porro quas iste libero eligendi consequatur voluptatum reiciendis
+              commodi? Tenetur aut expedita ex blanditiis, ullam eligendi. Commodi vero similique praesentium laboriosam consectetur, quam quae
+              officiis in placeat rem, eligendi culpa ab? Quidem ea non id, rerum totam et aperiam nobis. Non.
             </span>
           </div>
         </div>
       </div>
 
       {/* Overlay */}
-      <div
-        className="overlay hidden"
-        ref={overlayRef}
-        onClick={() => handleClose(type)}
-      ></div>
+      <div className="overlay hidden" ref={overlayRef} onClick={() => handleClose(type)}></div>
     </>
   );
 }
