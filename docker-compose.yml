@@ -1,7 +1,7 @@
 version: "3.3"
 
 services: 
-   backend:
+  backend:
     image: strapi/strapi:3.6.8-node14-alpine
     ports: 
       - 1337:1337
@@ -20,3 +20,4 @@ services:
     volumes: 
       - ./frontend:.
     restart: on-failure
+    command: sh -c "yarn && yarn start"
