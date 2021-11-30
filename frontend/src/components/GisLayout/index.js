@@ -24,7 +24,6 @@ export default function GisLayout() {
     console.log(res.json());
     // const data = await res.json();
     // console.log(data);
-    return;
 
     const graphicsLayer = new GraphicsLayer();
     map.add(graphicsLayer);
