@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "AirQuality",
+  "info": {
+    "name": "AirQuality",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "json",
+      "required": true
+    },
+    "aqi0": {
+      "type": "json",
+      "required": true
+    },
+    "aqi101": {
+      "type": "json"
+    },
+    "meanValue": {
+      "type": "float"
+    },
+    "aqi11": {
+      "type": "json",
+      "required": false
+    },
+    "mainPolls": {
+      "type": "json",
+      "required": true
+    },
+    "sensitiveRecommendation": {
+      "type": "json"
+    },
+    "nonSensitiveRecommendation": {
+      "type": "json"
+    }
+  }
+}
