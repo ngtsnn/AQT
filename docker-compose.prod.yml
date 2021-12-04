@@ -21,4 +21,4 @@ services:
     restart: on-failure
     volumes: 
       - ./frontend:/app
-    command: sh -c "yarn && yarn start"
+    command: sh -c "yarn && BROWSER=none yarn start"
