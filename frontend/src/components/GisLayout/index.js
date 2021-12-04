@@ -20,7 +20,7 @@ export default function GisLayout() {
     // fetch("http://localhost:3001/SE0115.json").then((res) => {
     //   return res.json();
     // }).then(data)
-    const res = await fetch("http://localhost:3001/SE0115.json");
+    const res = await fetch("http://localhost:3000/SE0115.json");
     const data = await res.json();
 
     const graphicsLayer = new GraphicsLayer();
