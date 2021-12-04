@@ -31,14 +31,13 @@
       "required": false
     },
     "mainPolls": {
-      "type": "json",
-      "required": true
+      "collection": "poll"
     },
     "sensitiveRecommendation": {
       "type": "json"
     },
     "nonSensitiveRecommendation": {
       "type": "json"
-    }
+    }    
   }
 }
