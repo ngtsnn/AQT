@@ -25,7 +25,7 @@ OSM_URL = "https://nominatim.openstreetmap.org/ui/"
 POLYGON_URL = "http://polygons.openstreetmap.fr/index.py"
 ### headers
 token = secrets[0]
-headers = {"x-access-token": str(token)}
+headers = {"x-access-token": str(token.rstrip("\n"))}
 ### endpoints url
 COUNTRIES_URL = "/territory/countries"
 CITIES_URL = "/territory/{}/names"
@@ -136,11 +136,3 @@ with open("./result/countries/countries.json", 'r') as file:
 
 main()
 driver.close()
-# cities = getCities({
-#     "id": "SE",
-#     "name": [
-#       "SWEDEN",
-#       "SVERIGE"
-#     ]
-#   })
-# print(cities)

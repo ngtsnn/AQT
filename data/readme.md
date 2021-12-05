@@ -10,9 +10,6 @@ This module merely scraping data from [Aircheckr](https://www.aircheckr.com/). I
    * [Requirements](#requirements)
    * [Installation](#installation)
    * [Usage](#usage)
-      * [Jupyter Notebook](#jupyter-notebook)
-      * [Script](#script)
-      * [Docker](#docker)
 <!--te-->
 
 ## Requirments:
@@ -28,57 +25,36 @@ Only need when you want to edit and scrape your own data.
 ```bash
  virtualenv packages
 ```
-**Install requirements:**
+**Install dependencies:**
 ```bash
  pip install -r requirements.txt
 ```
 **Create the ./secret.txt file in this directory with the following description:**
 aircheckr api's token
 
-**=> in case you don't really know how to write secret.txt, you could have a look at ./sample_secret.txt**
+**=> in case you don't really know how to write secret.txt, you could take a look at ./sample_secret.txt**
 
 ## Usage:
 
-### Jupyter Notebook:
-
-Initially, activate virtualenv:
+Initially, activate virtualenv (need creating first):
 ```bash
  source packages/bin/activate
 ```
 
-Then, open Jupyter Notebook:
+Then, run the file "./geo.py" (On window):
 ```bash
- jupyter notebook
-```
-
-Finally, edit and run these cells respectively
-
-### scripting:
-Initially, activate virtualenv:
-```bash
- source packages/bin/activate
-```
-
-Then, run the file "./main.py" (On window):
-```bash
- python main.py
+ python geo.py
 ```
 Or on Mac and Linux:
 ```bash
- python3 main.py
-```
-### Docker:
-It has been very simple with docker compose
-```bash
- docker-compose up
+ python3 geo.py
 ```
 
-Or in case you want to run it manually 
-First, build your own image:
+Finally, run the file "./air.py" to scrape air quality data daily (On window):
 ```bash
- docker build -t yourImageName .
+ python air.py
 ```
-Next, run your own image:
+Or on Mac and Linux:
 ```bash
- docker run yourImageName -v $(pwd):/usr/src/app
+ python3 air.py
 ```
