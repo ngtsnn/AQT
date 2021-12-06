@@ -33,6 +33,10 @@
     },
     "type": {
       "type": "string"
+    },
+    "air_qualities": {
+      "via": "city",
+      "collection": "air-quality"
     }
   }
 }

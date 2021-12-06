@@ -12,23 +12,41 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "city": {
+      "model": "city",
+      "via": "air_qualities"
+    },
     "date": {
+      "type": "date",
+      "required": true
+    },
+    "startTime": {
+      "type": "datetime",
+      "required": true
+    },
+    "endTime": {
+      "type": "datetime",
+      "required": true
+    },
+    "aqi_0": {
       "type": "json",
       "required": true
     },
-    "aqi0": {
-      "type": "json",
-      "required": true
-    },
-    "aqi101": {
+    "aqi_101": {
       "type": "json"
     },
     "meanValue": {
       "type": "float"
     },
-    "aqi11": {
+    "meanValueColor": {
+      "type": "string"
+    },
+    "aqi_11": {
       "type": "json",
       "required": false
+    },
+    "aqi_4": {
+      "type": "json"
     },
     "mainPolls": {
       "collection": "poll"
@@ -38,6 +56,6 @@
     },
     "nonSensitiveRecommendation": {
       "type": "json"
-    }    
+    }
   }
 }
