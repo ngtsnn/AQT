@@ -5,5 +5,4 @@ services:
     image: scraping
     build: 
       context: .
-    volumes: 
-      - .:/usr/src/app
+    
