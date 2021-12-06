@@ -23,7 +23,8 @@
     },
     "cities": {
       "via": "country",
-      "collection": "city"
+      "collection": "city",
+      "autoPopulate": false
     }
   }
 }
