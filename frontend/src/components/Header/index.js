@@ -87,7 +87,9 @@ export default function Header() {
               <Dehaze />
             </button>
             <a href="/">
-              <img src="/img/logo-white.jpg" alt="" className="img-logo" />
+              <div className="img-container">
+                <img src="/img/logo-white.jpg" alt="" className="img-logo" />
+              </div>
             </a>
           </div>
           <div className="header-right">

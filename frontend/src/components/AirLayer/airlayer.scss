@@ -1,0 +1,29 @@
+.airlayer-container {
+    padding: 20px;
+
+    .airlayer-line {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex: 1;
+        margin-bottom: 20px;
+
+        .airlayer-input {
+            margin-right: 20px;
+            input {
+                width: 15px;
+                height: 15px;
+            }
+        }
+        .airlayer-img {
+            margin-right: 10px;
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+        }
+        .airlayer-text {
+        }
+    }
+}
