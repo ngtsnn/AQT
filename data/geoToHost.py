@@ -53,7 +53,7 @@ def sendData():
               city = json.load(city)
               city["country"] = country_id
               city.pop("countryID", None)
-              requests.post(BASE_URL + "/cities", headers=headers, data=city)
+              requests.post(BASE_URL + "/cities", headers=headers, data=json.dumps(city))
 
       
     

@@ -5,6 +5,7 @@ from os import makedirs, path, getcwd, walk
 from datetime import date, datetime, timedelta
 import time
 import schedule
+import json
 # Set up constants and variables
 
 ## Get secret stuffs 
@@ -104,6 +105,9 @@ def getAirData():
   # handle poll
   mainPolls = []
   for poll in data["main_polls"]:
+    if (poll.startswith("pm")):
+      mainPolls.append(polls[2]["_id"])
+      continue
     detailedPoll = next((x for x in polls if x["name"] == poll), None)
     if detailedPoll:
       mainPolls.append(detailedPoll["_id"])
@@ -117,7 +121,7 @@ def getAirData():
   data.pop("poll_info", None)
   data.pop("main_polls", None)
   # post to host
-  a = api.post(HOST_URL + AIR_QUALITIES_URL, headers=hostHeaders, data=data)
+  a = api.post(HOST_URL + AIR_QUALITIES_URL, headers=hostHeaders, data=json.dumps(data))
   print(a.json())
 
 
