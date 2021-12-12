@@ -17,9 +17,7 @@ export default function GisLayout() {
       center: [18.21808, 59.58301],
       zoom: 12,
     });
-    // fetch("http://localhost:3001/SE0115.json").then((res) => {
-    //   return res.json();
-    // }).then(data)
+
     const res = await fetch("http://localhost:3000/SE0115.json");
     const data = await res.json();
 

@@ -1,15 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  FilterNone,
-  AnalyticsOutlined,
-  Search,
-  AltRoute,
-  AccountTreeOutlined,
-  WbSunnyOutlined,
-  Brightness2Outlined,
-  Settings,
-  Close,
-} from "@mui/icons-material";
+import { FilterNone, AnalyticsOutlined, Search, AltRoute, AccountTreeOutlined, Close } from "@mui/icons-material";
 import "./toolbarmobile.scss";
 export default function ToolbarMobile() {
   const arrayToolbarMobileContent = document.getElementsByClassName("toolbar-mobile-content");
@@ -49,7 +39,7 @@ export default function ToolbarMobile() {
       }
     }
     return () => {};
-  }, [indexToolbarMobile]);
+  }, [indexToolbarMobile, arrayToolbarMobileContent]);
 
   // Handle Close Tab
   const handleCloseToolbar = () => {
