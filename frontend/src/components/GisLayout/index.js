@@ -15,7 +15,12 @@ export default function GisLayout() {
       container: "gisLayout",
       // center: [106.80304336824396, 10.870082646589365],
       center: [18.21808, 59.58301],
-      zoom: 12,
+      zoom: 10,
+      highlightOptions: {
+        color: "white",
+        haloOpacity: 0.65,
+        fillOpacity: 0.45,
+      },
     });
     // fetch("http://localhost:3001/SE0115.json").then((res) => {
     //   return res.json();
@@ -37,9 +42,14 @@ export default function GisLayout() {
         width: 1,
       },
     };
+    const popupTemplate = {
+      title: "SE0115",
+      content: "<p>html ne</p>",
+    };
     const polygonGraphic = new Graphic({
       geometry: polygon,
       symbol: simpleFillSymbol,
+      popupTemplate: popupTemplate,
     });
     graphicsLayer.add(polygonGraphic);
   }, []);

@@ -1,0 +1,48 @@
+.found-cities {
+  height: calc(100vh - 150px);
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    cursor: grabbing;
+  }
+
+  .found-city {
+    display: flex;
+    cursor: pointer;
+    border-radius: 12px;
+
+    &:hover {
+      background-color: var(--primary-link-hover);
+    }
+
+    .city-icon {
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .city-info {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .city-name {
+        font-weight: bold;
+      }
+      .city-center {
+        font-size: 12px;
+      }
+    }
+  }
+}
