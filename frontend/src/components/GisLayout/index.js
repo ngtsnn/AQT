@@ -1,33 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./gislayout.scss";
 import arcgisConfig from "@arcgis/core/config";
 import Map from "@arcgis/core/Map";
 import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
 import Graphic from "@arcgis/core/Graphic";
 import MapView from "@arcgis/core/views/MapView";
+import { GIS_KEY } from "../../constants/key";
 
 export default function GisLayout() {
-  useEffect(async () => {
-    arcgisConfig.apiKey = "AAPKc6e5adb1355c4f3f9af6b66859984835PWMVQ2ETfKlLK8mQ3ekhodnYmwCXZ1UIQpZ_s75oqZHb1BI6h3Nh_Ute2QuMrQOt";
-    const map = new Map({ basemap: "arcgis-topographic" });
-    const view = new MapView({
-      map: map,
-      container: "gisLayout",
-      // center: [106.80304336824396, 10.870082646589365],
-      center: [18.21808, 59.58301],
-      zoom: 10,
-      highlightOptions: {
-        color: "white",
-        haloOpacity: 0.65,
-        fillOpacity: 0.45,
-      },
-    });
+  const [map, setMap] = useState(null);
+  const [view, setView] = useState(null);
+  const [graphicsLayer, setGraphicsLayer] = useState(null);
 
+  const fetchData = async () => {
     const res = await fetch("http://localhost:3000/SE0115.json");
     const data = await res.json();
 
-    const graphicsLayer = new GraphicsLayer();
-    map.add(graphicsLayer);
     const polygon = {
       type: "polygon",
       rings: data.geometries[0].coordinates[0],
@@ -47,9 +35,47 @@ export default function GisLayout() {
     const polygonGraphic = new Graphic({
       geometry: polygon,
       symbol: simpleFillSymbol,
-      popupTemplate: popupTemplate,
+      // popupTemplate: popupTemplate,
     });
-    graphicsLayer.add(polygonGraphic);
+    view?.on("click", async function (event) {
+      // you must overwrite default click-for-popup
+      // behavior to display your own popup
+      const graphic = await view.hitTest(event);
+      console.log(graphic);
+    });
+    console.log(polygonGraphic);
+    graphicsLayer?.add(polygonGraphic);
+  };
+
+  useEffect(() => {
+    arcgisConfig.apiKey = GIS_KEY;
+    setMap(new Map({ basemap: "arcgis-topographic" }));
+    setGraphicsLayer(new GraphicsLayer());
   }, []);
+
+  useEffect(() => {
+    setView(
+      new MapView({
+        map: map || new Map({ basemap: "arcgis-topographic" }),
+        container: "gisLayout",
+        // center: [106.80304336824396, 10.870082646589365],
+        center: [18.21808, 59.58301],
+        zoom: 10,
+        highlightOptions: {
+          color: "white",
+          haloOpacity: 0.65,
+          fillOpacity: 0.45,
+        },
+      })
+    );
+    map?.add(graphicsLayer);
+  }, [map]);
+
+  useEffect(() => {
+    fetchData();
+    // Delete all polygons
+    // map?.remove(graphicsLayer);
+    // Add new polygon
+  });
   return <div id="gisLayout"></div>;
 }
