@@ -10,6 +10,8 @@ export default function Header() {
   const infoRef = useRef(null);
   const menuRef = useRef(null);
   const overlayRef = useRef(null);
+  const today = new Date();
+  const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
   const handleOpen = (type) => {
     switch (type) {
@@ -91,6 +93,9 @@ export default function Header() {
                 <img src="/img/logo-white.jpg" alt="" className="img-logo" />
               </div>
             </a>
+          </div>
+          <div className="header-center">
+            <input type="date" id="date" min="2021-12-05" max={date}/>
           </div>
           <div className="header-right">
             <button className="btn-feature-item" onClick={() => handleOpen("info")}>

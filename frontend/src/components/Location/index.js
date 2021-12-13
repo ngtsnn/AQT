@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Search } from "@mui/icons-material";
 import "./location.scss";
 import {BASE_API} from "../../constants/url";
@@ -20,7 +20,6 @@ export default function Location() {
   const searchHandle = async (e) => {
     const searchTag = e.target;
     const searchString = searchTag.value.toLowerCase();
-    console.log(searchString);
     if (!searchString) {
       setFoundCities([])
     } else {
