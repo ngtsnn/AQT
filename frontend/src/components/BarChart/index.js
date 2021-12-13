@@ -93,5 +93,6 @@ export default function BarChart() {
       },
     });
   }, []);
+
   return <canvas id="barChart"></canvas>;
 }

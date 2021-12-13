@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./gislayout.scss";
 import arcgisConfig from "@arcgis/core/config";
 import Map from "@arcgis/core/Map";
@@ -6,11 +6,13 @@ import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
 import Graphic from "@arcgis/core/Graphic";
 import MapView from "@arcgis/core/views/MapView";
 import { GIS_KEY } from "../../constants/key";
+import axios from "axios";
 
 export default function GisLayout() {
   const [map, setMap] = useState(null);
   const [view, setView] = useState(null);
   const [graphicsLayer, setGraphicsLayer] = useState(null);
+  const [list, setList] = useState(null);
 
   const fetchData = async () => {
     const res = await fetch("http://localhost:3000/SE0115.json");
@@ -77,5 +79,38 @@ export default function GisLayout() {
     // map?.remove(graphicsLayer);
     // Add new polygon
   });
+
+  const getList = useCallback(async () => {
+    const { data } = await axios.get(
+      "http://103.101.161.57:1337/air-qualities/?date=2021-12-07"
+    );
+    // setList(data);
+    const list = [];
+    [...data].map((item) => {
+      console.log(item);
+      list.push({
+        id: item.id,
+        cityName: item.city.name,
+        aqi101: item.aqi_101,
+        date: item.date,
+        coordinates: item.city.geometries,
+      });
+    });
+    console.log(list);
+    setList(list);
+  }, []);
+
+  const convertList = useCallback(async () => {
+    if (!list) return;
+
+    console.log(list);
+  }, []);
+  useEffect(() => {
+    getList();
+    if (list) console.log(list);
+    convertList();
+    return () => {};
+  }, [getList]);
+
   return <div id="gisLayout"></div>;
 }
