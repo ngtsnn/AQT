@@ -11,7 +11,7 @@ import { GIS_KEY } from "../../constants/key";
 export function Init() {
   arcgisConfig.apiKey = GIS_KEY;
   const map = new Map({ basemap: "arcgis-topographic" });
-  const view  = new MapView({
+  const view = new MapView({
     map: map,
     container: "gisLayout",
     center: [18.21808, 59.58301],
@@ -23,9 +23,17 @@ export function Init() {
     },
   });
 
+  view?.on("click", async function (event) {
+    // you must overwrite default click-for-popup
+    // behavior to display your own popup
+    const graphic = await view.hitTest(event);
+    console.log(graphic);
+    alert(1);
+  });
+
   return {
     type: INIT_ARCGIS,
-    payload: {map , view},
+    payload: { map, view },
   };
 }
 
