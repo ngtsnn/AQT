@@ -1,31 +1,30 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Search } from "@mui/icons-material";
 import "./location.scss";
-import {BASE_API} from "../../constants/url";
+import { BASE_API } from "../../constants/url";
 import axios from "axios";
 import Results from "./Results";
 
-
 export default function Location() {
-
   const [cities, setCities] = useState([]);
   const [foundCities, setFoundCities] = useState([]);
-  
 
   const fetchCities = useCallback(async () => {
-    const {data} = await axios.get(BASE_API + "/cities?_limit=-1");
+    const { data } = await axios.get(BASE_API + "/cities?_limit=-1");
     setCities(data);
   }, []);
-  
+
   const searchHandle = async (e) => {
     const searchTag = e.target;
     const searchString = searchTag.value.toLowerCase();
     if (!searchString) {
-      setFoundCities([])
+      setFoundCities([]);
     } else {
-      const foundOnes = cities.filter(city => {
-        if (Array.isArray(city.name)){
-          const foundNames = city.name.filter(name => name.toLowerCase().includes(searchString));
+      const foundOnes = cities.filter((city) => {
+        if (Array.isArray(city.name)) {
+          const foundNames = city.name.filter((name) =>
+            name.toLowerCase().includes(searchString)
+          );
           return foundNames.length > 0;
         } else if (typeof city.name === typeof "a") {
           return city.name.toLowerCase().includes(searchString);
@@ -35,7 +34,7 @@ export default function Location() {
       });
       setFoundCities(foundOnes);
     }
-  } 
+  };
 
   useEffect(() => {
     fetchCities();
@@ -50,7 +49,7 @@ export default function Location() {
         </div>
         <div className="location-input">
           <input
-            placeholder="Tìm địa điểm"
+            placeholder="Input location"
             type="search"
             onChange={searchHandle}
           />

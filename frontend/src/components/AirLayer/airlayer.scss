@@ -1,29 +1,82 @@
 .airlayer-container {
-    padding: 20px;
+  padding: 20px;
+  height: calc(100vh - 134px);
+  position: relative;
+  .airquality-container {
+    .airquality-lv1 {
+      display: flex;
+      padding: 10px;
+      justify-content: space-between;
+      cursor: pointer;
+      &:hover {
+        background-color: var(--primary-link-hover);
+      }
+      span {
+        margin-left: 2rem;
+      }
+      .dropdown-icon {
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
 
     .airlayer-line {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        flex: 1;
-        margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      flex: 1;
+      margin-bottom: 20px;
 
-        .airlayer-input {
-            margin-right: 20px;
-            input {
-                width: 15px;
-                height: 15px;
-            }
+      .airlayer-input {
+        margin-right: 20px;
+        input {
+          width: 15px;
+          height: 15px;
         }
-        .airlayer-img {
-            margin-right: 10px;
-            img {
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-            }
+      }
+      .airlayer-img {
+        margin-right: 10px;
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
         }
-        .airlayer-text {
-        }
+      }
+      .airlayer-text {
+      }
     }
+  }
+  .color-table-container {
+    width: 200px;
+    height: calc(100% - 510px);
+    display: flex;
+    justify-content: center;
+    .color-table {
+      height: 100%;
+      width: 100%;
+
+      > div {
+        width: 100%;
+        height: 1%;
+      }
+    }
+    .color-legend {
+      position: relative;
+      .start {
+        font-weight: bold;
+        font-size: 20px;
+        margin-left: 15px;
+      }
+      .end {
+        font-weight: bold;
+        font-size: 20px;
+        margin-left: 15px;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
 }
